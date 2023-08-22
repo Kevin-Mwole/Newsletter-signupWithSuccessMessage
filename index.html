@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <!--the code above used to specify the rendering mode for Internet Explorer (IE) browsers
+  The purpose of this code is to ensure that Internet Explorer renders the HTML document using the latest available version of its rendering engine, rather than emulating older versions or compatibility modes. 
+  -->
+  <link rel="icon" 
+  type="image/png" 
+  sizes="32x32" 
+  href="./assets/images/favicon-32x32.png"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./index.css"> <!--link to my style sheet-->
+  <title>Newsletter sign-up form with success message</title>
+  
+
+</head>
+
+<!--start of the body-->
+<body>
+
+  <!-- Sign-up form start -->
+<div class="container">
+  <div class="leftDiv">
+  <h2>Stay updated!</h2>
+  <p>Join 60,000+ product managers receiving monthly updates on:</p>
+
+<!--start my list of updates-->
+<ul>
+    <li> Product discovery and building what matters</li>
+    <li> Measuring to ensure updates are a success</li>
+    <li> And much more!</li>
+</ul>
+<!--end my list of updates-->
+
+<!--start of input form-->
+<div class="input">
+  <label for="">Email Address</label>
+  <input type="email" id="email" placeholder="email@company.com" onkeyup="validateEmail()">
+  <span id="error"></span>
+</div>
+<!--end of input form-->
+
+<!--start of subscribe section-->
+<div class="btn-subscribe">
+  <button type="submit" onclick="openPopup()">Subscribe to monthly news letter</button>
+</div>
+<!--end of subscribe section-->
+
+<!--after clicking subscribe button, a success message popup should appear--> 
+<div class="popup" id="popup">
+  <img src="./images/icon-success.svg" alt="">
+  <h2>Thanks for Subscribing!</h2>
+  <p>A confirmation email has been sent to <span id="userMail">ash@loremcompany.com</span>. Please open it and click the button inside to confirm your subscription.</p>
+  <button type="submit" id="close" onclick="closePopup()"> Dismiss message</button>
+</div>
+<!--end of success popup message-->
+
+</div>
+
+<div class="rightDiv">
+  <img src="./images/illustration-sign-up-desktop.svg" alt="">
+</div>
+
+</div>
+  <!-- Sign-up form end -->
+
+
+<!--attribution section start-->
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Kevin Mwole</a>.
+  </div>
+  <!--attribution section end-->
+
+  <script >
+
+let emailError = document.getElementById('error')
+        
+
+function validateEmail(){
+    let email = document.getElementById('email').value
+    if(email.length === 0)
+    {
+        emailError.innerHTML = 'This field cannot be empty'
+        emailError.style.color = 'red'
+        return false
+    }
+    if(!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/))
+    {
+        emailError.innerHTML = 'Enter a valid Email'
+        emailError.style.color = 'red'
+        return false
+    }
+    emailError.innerHTML = 'Valid Email'
+    emailError.style.color = 'green'
+    return true
+}
+
+function openPopup(){
+    let popup = document.getElementById('popup')
+    let userSpan = document.getElementById('userMail')
+    if(validateEmail() === false)
+    {
+        alert('Enter valid Email...')
+    }
+    else{
+        let usernameid = email.value
+        popup.classList.add('popup-open')
+        userSpan.innerHTML = usernameid
+    }
+}
+
+function closePopup(){
+    popup.classList.remove('popup-open')
+}
+
+  </script> <!-- embedment of javascript code direct to my html content-->
+</body>
+
+<!--end of body-->
+</html>
