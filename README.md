@@ -1,4 +1,4 @@
-# Frontend Mentor CHALLENGE - Newsletter sign-up form with success message
+# Newsletter sign-up form with success message
 ## The challenge
 
 Your challenge is to build out this newsletter form and get it looking as close to the design as possible.
